@@ -1,52 +1,13 @@
-import React from 'react';
-import { Helmet } from 'react-helmet-async'; // ✅ updated import
-import { card } from '../assets';
-import styles, { layout } from '../style';
+import React from 'react'
+import { card } from '../assets'
+import styles, { layout } from '../style'
 
 const CardDeal = () => {
   return (
     <section className={layout.section}>
-      {/* Metadata for SEO using react-helmet-async */}
-      <Helmet>
-        <title>Smart Solutions | MIKIRO Advanced Research</title>
-        <meta
-          name="description"
-          content="MIKIRO Advanced Research delivers research-driven, AI-powered systems that optimize operations, enhance decision-making, and accelerate growth through scalable and secure technology."
-        />
-        <meta
-          name="keywords"
-          content="MIKIRO, AI solutions, smart systems, technology optimization, scalable technology, secure systems, business growth"
-        />
-        <meta name="author" content="MIKIRO Advanced Research Company" />
-
-        {/* JSON-LD structured data for CardDeal section */}
-        <script type="application/ld+json">
-          {JSON.stringify({
-            "@context": "https://schema.org",
-            "@type": "Product",
-            name: "Smart AI-Powered Solutions",
-            image: "https://www.mikiro.com/assets/card.png",
-            description: "MIKIRO delivers research-driven, AI-powered systems designed to optimize operations, enhance decision-making, and accelerate growth through scalable and secure technology.",
-            brand: {
-              "@type": "Organization",
-              name: "MIKIRO",
-              url: "https://www.mikiro.com",
-              logo: "https://www.mikiro.com/logo.png"
-            },
-            offers: {
-              "@type": "Offer",
-              url: "https://www.mikiro.com#smart-solutions",
-              availability: "https://schema.org/InStock",
-              priceCurrency: "USD",
-              price: "Contact for pricing"
-            }
-          })}
-        </script>
-      </Helmet>
-
       <div className={layout.sectionInfo}>
         <h2 className={styles.heading2}>
-          Build smarter solutions <br className="sm:block hidden" />in a few strategic steps.
+          Build smarter solutions <br className='sm:block hidden'/>in a few strategic steps.
         </h2>
         <p className={`${styles.paragraph} max-w-[470px] mt-5`}>
           MIKIRO delivers research-driven, AI-powered systems designed to optimize
@@ -58,12 +19,12 @@ const CardDeal = () => {
       <div className={layout.sectionImg}>
         <img
           src={card}
-          alt="technology"
-          className="w-[100%] h-[100%]"
+          alt='technology'
+          className='w-[100%] h-[100%]'
         />
       </div>
     </section>
-  );
-};
+  )
+}
 
-export default CardDeal;
+export default CardDeal
