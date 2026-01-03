@@ -1,6 +1,7 @@
-import React from 'react'
-import styles, { layout } from '../style'
-import { socialMedia } from '../constants'
+import React from 'react';
+import { Helmet } from 'react-helmet';
+import styles, { layout } from '../style';
+import { socialMedia } from '../constants';
 
 // Cybernetics R&D Section
 const CyberneticsRAndD = () => {
@@ -26,10 +27,24 @@ const CyberneticsRAndD = () => {
         'AI-driven image and sensor analysis allows recognition of wounded survivors in disaster zones for effective deployment.',
       image: 'https://i.postimg.cc/BnFTfs4h/rubble-removebg-preview.png',
     },
-  ]
+  ];
 
   return (
     <section id='research-cybernetics' className={`${layout.section}`}>
+      {/* Metadata for SEO */}
+      <Helmet>
+        <title>Cybernetics Research | MIKIRO Advanced Research</title>
+        <meta
+          name="description"
+          content="MIKIRO Advanced Research conducts cutting-edge cybernetics R&D, including cyborg cockroach control, AI-assisted stability, and survivor detection systems for advanced robotics applications."
+        />
+        <meta
+          name="keywords"
+          content="MIKIRO, cybernetics, R&D, robotics, AI-assisted systems, cyborg cockroach, survivor detection, advanced research"
+        />
+        <meta name="author" content="MIKIRO Advanced Research Company" />
+      </Helmet>
+
       <div className={layout.sectionInfo}>
         <h2 className={styles.heading2}>
           Research & Development <br className='sm:block hidden' /> Cybernetics
@@ -60,8 +75,8 @@ const CyberneticsRAndD = () => {
         ))}
       </div>
     </section>
-  )
-}
+  );
+};
 
 // Flies R&D Section
 const FliesRAndD = () => {
@@ -87,10 +102,24 @@ const FliesRAndD = () => {
         'Implementing sensors and AI monitoring systems to detect and record fly behavior in high-risk areas.',
       image: 'https://i.postimg.cc/GhgRnwqC/image.png',
     },
-  ]
+  ];
 
   return (
     <section id='research-flies' className={`${layout.section} mt-20`}>
+      {/* Metadata for SEO */}
+      <Helmet>
+        <title>Flies Research | MIKIRO Advanced Research</title>
+        <meta
+          name="description"
+          content="MIKIRO Advanced Research investigates fly behavior for virology studies, including surveillance, pathogen interaction, and autonomous monitoring to anticipate disease vectors."
+        />
+        <meta
+          name="keywords"
+          content="MIKIRO, flies research, virology, disease surveillance, autonomous monitoring, pathogen interaction, advanced research"
+        />
+        <meta name="author" content="MIKIRO Advanced Research Company" />
+      </Helmet>
+
       <div className={layout.sectionInfo}>
         <h2 className={styles.heading2}>
           Research & Development <br className='sm:block hidden' /> Flies Study
@@ -120,8 +149,8 @@ const FliesRAndD = () => {
         ))}
       </div>
     </section>
-  )
-}
+  );
+};
 
 // Footer Section
 const Footer = () => {
@@ -167,7 +196,7 @@ const Footer = () => {
         </div>
       </section>
     </>
-  )
-}
+  );
+};
 
-export default Footer
+export default Footer;
