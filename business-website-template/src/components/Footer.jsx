@@ -1,5 +1,5 @@
 import React from 'react';
-import { Helmet } from 'react-helmet';
+import { Helmet } from 'react-helmet-async'; // ✅ switched to react-helmet-async
 import styles, { layout } from '../style';
 import { socialMedia } from '../constants';
 
@@ -30,7 +30,7 @@ const CyberneticsRAndD = () => {
   ];
 
   return (
-    <section id="research-cybernetics" className={`${layout.section}`}>
+    <section id="research-cybernetics" className={layout.section}>
       <Helmet>
         <title>Cybernetics Research | MIKIRO Advanced Research</title>
         <meta
@@ -42,19 +42,17 @@ const CyberneticsRAndD = () => {
           content="MIKIRO, cybernetics, R&D, robotics, AI-assisted systems, cyborg cockroach, survivor detection, advanced research"
         />
         <meta name="author" content="MIKIRO Advanced Research Company" />
-
-        {/* JSON-LD for Cybernetics Projects */}
         <script type="application/ld+json">
           {JSON.stringify({
             "@context": "https://schema.org",
             "@type": "ResearchProject",
-            "name": "Cybernetics R&D",
-            "description": "MIKIRO leverages cutting-edge cybernetics research for robotic organisms.",
-            "hasPart": rAndDProjects.map(p => ({
+            name: "Cybernetics R&D",
+            description: "MIKIRO leverages cutting-edge cybernetics research for robotic organisms.",
+            hasPart: rAndDProjects.map(p => ({
               "@type": "ResearchProject",
-              "name": p.title,
-              "description": p.content,
-              "image": p.image
+              name: p.title,
+              description: p.content,
+              image: p.image
             }))
           })}
         </script>
@@ -72,7 +70,7 @@ const CyberneticsRAndD = () => {
       </div>
 
       <div className={`${layout.sectionImg} flex flex-wrap justify-center mt-10`}>
-        {rAndDProjects.map((project) => (
+        {rAndDProjects.map(project => (
           <div
             key={project.id}
             className="flex flex-col items-center m-4 p-4 bg-gray-900 rounded-[20px] max-w-[300px] hover:scale-105 transition-transform duration-300"
@@ -130,19 +128,17 @@ const FliesRAndD = () => {
           content="MIKIRO, flies research, virology, disease surveillance, autonomous monitoring, pathogen interaction, advanced research"
         />
         <meta name="author" content="MIKIRO Advanced Research Company" />
-
-        {/* JSON-LD for Flies Projects */}
         <script type="application/ld+json">
           {JSON.stringify({
             "@context": "https://schema.org",
             "@type": "ResearchProject",
-            "name": "Flies R&D",
-            "description": "MIKIRO investigates the role of flies in virology and disease transmission.",
-            "hasPart": flyProjects.map(p => ({
+            name: "Flies R&D",
+            description: "MIKIRO investigates the role of flies in virology and disease transmission.",
+            hasPart: flyProjects.map(p => ({
               "@type": "ResearchProject",
-              "name": p.title,
-              "description": p.content,
-              "image": p.image
+              name: p.title,
+              description: p.content,
+              image: p.image
             }))
           })}
         </script>
@@ -159,7 +155,7 @@ const FliesRAndD = () => {
       </div>
 
       <div className={`${layout.sectionImg} flex flex-wrap justify-center mt-10`}>
-        {flyProjects.map((project) => (
+        {flyProjects.map(project => (
           <div
             key={project.id}
             className="flex flex-col items-center m-4 p-4 bg-gray-900 rounded-[20px] max-w-[300px] hover:scale-105 transition-transform duration-300"
@@ -178,26 +174,25 @@ const FliesRAndD = () => {
   );
 };
 
-// Footer Section with Organization JSON-LD
+// Footer Section
 const Footer = () => {
   return (
     <>
       <Helmet>
-        {/* JSON-LD for Organization & Social Links */}
         <script type="application/ld+json">
           {JSON.stringify({
             "@context": "https://schema.org",
             "@type": "Organization",
-            "name": "MIKIRO",
-            "url": "https://www.mikiro.com",
-            "logo": "https://www.mikiro.com/logo.png",
-            "description": "MIKIRO leverages cutting-edge research in cybernetics, AI, and virology to empower businesses through innovation.",
-            "sameAs": socialMedia.map(s => s.link),
-            "contactPoint": {
+            name: "MIKIRO",
+            url: "https://www.mikiro.com",
+            logo: "https://www.mikiro.com/logo.png",
+            description: "MIKIRO leverages cutting-edge research in cybernetics, AI, and virology to empower businesses through innovation.",
+            sameAs: socialMedia.map(s => s.link),
+            contactPoint: {
               "@type": "ContactPoint",
-              "telephone": "+63-123-456-7890",
-              "contactType": "customer support",
-              "email": "info@mikiro.com"
+              telephone: "+63-123-456-7890",
+              contactType: "customer support",
+              email: "info@mikiro.com"
             }
           })}
         </script>
@@ -206,7 +201,6 @@ const Footer = () => {
       <CyberneticsRAndD />
       <FliesRAndD />
 
-      {/* Divider */}
       <div className="w-full h-[2px] bg-gradient-to-r from-transparent via-gray-700 to-transparent my-10"></div>
 
       <section className={`${styles.flexCenter} flex-col p-10 bg-black bg-opacity-80`}>
