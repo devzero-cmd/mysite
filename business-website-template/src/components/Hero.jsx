@@ -1,4 +1,5 @@
 import React from 'react';
+import { Helmet } from 'react-helmet';
 import styles from '../style';
 import { robot } from '../assets';
 import GetStarted from './GetStarted';
@@ -6,6 +7,20 @@ import GetStarted from './GetStarted';
 const Hero = () => {
   return (
     <section id="home" className={`flex md:flex-row flex-col ${styles.paddingY}`}>
+      
+      {/* Metadata for SEO */}
+      <Helmet>
+        <title>MIKIRO | Advanced Research & Development Company</title>
+        <meta
+          name="description"
+          content="MIKIRO leverages cutting-edge AI and advanced technologies to deliver innovative solutions across multiple industries. We specialize in intelligent systems, automation, and data-driven research to empower businesses to scale efficiently."
+        />
+        <meta
+          name="keywords"
+          content="MIKIRO, AI research, advanced technology, intelligent systems, automation, R&D company, business solutions, innovation"
+        />
+        <meta name="author" content="MIKIRO Advanced Research Company" />
+      </Helmet>
 
       {/* LEFT SIDE TEXT */}
       <div className={`flex-1 ${styles.flexStart} flex-col xl:px-0 sm:px-16 px-6`}>
@@ -27,10 +42,8 @@ const Hero = () => {
 
         {/* CALL TO ACTION BUTTON */}
         <div className="mt-4">
-          {/* Pass the target ID to scroll to */}
           <GetStarted target="#products" text="View Products" />
         </div>
-
       </div>
 
       {/* RIGHT SIDE IMAGE */}
@@ -46,7 +59,7 @@ const Hero = () => {
       </div>
 
     </section>
-  )
-}
+  );
+};
 
 export default Hero;
