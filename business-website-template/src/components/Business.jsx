@@ -1,5 +1,5 @@
 import React from 'react';
-import { Helmet } from 'react-helmet';
+import { Helmet } from 'react-helmet-async'; // ✅ updated import
 import { features } from '../constants';
 import styles, { layout } from '../style';
 
@@ -30,7 +30,7 @@ const FeatureCard = ({ icon, title, content, index }) => (
 const Business = () => {
   return (
     <section id='features' className={layout.section}>
-      {/* Metadata for SEO */}
+      {/* Metadata for SEO using react-helmet-async */}
       <Helmet>
         <title>Business Solutions | MIKIRO Advanced Research</title>
         <meta
@@ -48,22 +48,22 @@ const Business = () => {
           {JSON.stringify({
             "@context": "https://schema.org",
             "@type": "Service",
-            "name": "Business Solutions",
-            "provider": {
+            name: "Business Solutions",
+            provider: {
               "@type": "Organization",
-              "name": "MIKIRO",
-              "url": "https://www.mikiro.com",
-              "logo": "https://www.mikiro.com/logo.png"
+              name: "MIKIRO",
+              url: "https://www.mikiro.com",
+              logo: "https://www.mikiro.com/logo.png"
             },
-            "description": "MIKIRO Advanced Research helps businesses grow with advanced solutions that optimize processes, enhance efficiency, and unlock new opportunities for scaling with confidence.",
-            "hasOfferCatalog": {
+            description: "MIKIRO Advanced Research helps businesses grow with advanced solutions that optimize processes, enhance efficiency, and unlock new opportunities for scaling with confidence.",
+            hasOfferCatalog: {
               "@type": "OfferCatalog",
-              "name": "Business Features",
-              "itemListElement": features.map(f => ({
+              name: "Business Features",
+              itemListElement: features.map(f => ({
                 "@type": "Offer",
-                "name": f.title,
-                "description": f.content,
-                "image": f.icon
+                name: f.title,
+                description: f.content,
+                image: f.icon
               }))
             }
           })}
