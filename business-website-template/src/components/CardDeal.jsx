@@ -1,12 +1,12 @@
 import React from 'react';
-import { Helmet } from 'react-helmet';
+import { Helmet } from 'react-helmet-async'; // ✅ updated import
 import { card } from '../assets';
 import styles, { layout } from '../style';
 
 const CardDeal = () => {
   return (
     <section className={layout.section}>
-      {/* Metadata for SEO */}
+      {/* Metadata for SEO using react-helmet-async */}
       <Helmet>
         <title>Smart Solutions | MIKIRO Advanced Research</title>
         <meta
@@ -24,21 +24,21 @@ const CardDeal = () => {
           {JSON.stringify({
             "@context": "https://schema.org",
             "@type": "Product",
-            "name": "Smart AI-Powered Solutions",
-            "image": "https://www.mikiro.com/assets/card.png",
-            "description": "MIKIRO delivers research-driven, AI-powered systems designed to optimize operations, enhance decision-making, and accelerate growth through scalable and secure technology.",
-            "brand": {
+            name: "Smart AI-Powered Solutions",
+            image: "https://www.mikiro.com/assets/card.png",
+            description: "MIKIRO delivers research-driven, AI-powered systems designed to optimize operations, enhance decision-making, and accelerate growth through scalable and secure technology.",
+            brand: {
               "@type": "Organization",
-              "name": "MIKIRO",
-              "url": "https://www.mikiro.com",
-              "logo": "https://www.mikiro.com/logo.png"
+              name: "MIKIRO",
+              url: "https://www.mikiro.com",
+              logo: "https://www.mikiro.com/logo.png"
             },
-            "offers": {
+            offers: {
               "@type": "Offer",
-              "url": "https://www.mikiro.com#smart-solutions",
-              "availability": "https://schema.org/InStock",
-              "priceCurrency": "USD",
-              "price": "Contact for pricing"
+              url: "https://www.mikiro.com#smart-solutions",
+              availability: "https://schema.org/InStock",
+              priceCurrency: "USD",
+              price: "Contact for pricing"
             }
           })}
         </script>
