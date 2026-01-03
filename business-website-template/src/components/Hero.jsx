@@ -8,7 +8,7 @@ const Hero = () => {
   return (
     <section id="home" className={`flex md:flex-row flex-col ${styles.paddingY}`}>
       
-      {/* Metadata for SEO */}
+      {/* Metadata for SEO and JSON-LD */}
       <Helmet>
         <title>MIKIRO | Advanced Research & Development Company</title>
         <meta
@@ -20,6 +20,35 @@ const Hero = () => {
           content="MIKIRO, AI research, advanced technology, intelligent systems, automation, R&D company, business solutions, innovation"
         />
         <meta name="author" content="MIKIRO Advanced Research Company" />
+
+        {/* JSON-LD structured data */}
+        <script type="application/ld+json">
+          {`
+          {
+            "@context": "https://schema.org",
+            "@type": "Organization",
+            "name": "MIKIRO",
+            "url": "https://www.mikiro.com",
+            "logo": "https://www.mikiro.com/logo.png",
+            "description": "MIKIRO leverages cutting-edge AI and advanced technologies to deliver innovative solutions across multiple industries. We specialize in intelligent systems, automation, and data-driven research to empower businesses to scale efficiently.",
+            "sameAs": [
+              "https://www.linkedin.com/company/mikiro",
+              "https://twitter.com/mikiro"
+            ],
+            "contactPoint": {
+              "@type": "ContactPoint",
+              "telephone": "+63-123-456-7890",
+              "contactType": "customer support",
+              "email": "info@mikiro.com"
+            },
+            "potentialAction": {
+              "@type": "Action",
+              "name": "View Products",
+              "target": "https://www.mikiro.com#products"
+            }
+          }
+          `}
+        </script>
       </Helmet>
 
       {/* LEFT SIDE TEXT */}
