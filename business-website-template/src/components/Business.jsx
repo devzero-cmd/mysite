@@ -1,6 +1,7 @@
-import React from 'react'
-import { features } from '../constants'
-import styles, { layout } from '../style'
+import React from 'react';
+import { Helmet } from 'react-helmet';
+import { features } from '../constants';
+import styles, { layout } from '../style';
 
 const FeatureCard = ({ icon, title, content, index }) => (
   <div
@@ -24,11 +25,19 @@ const FeatureCard = ({ icon, title, content, index }) => (
       </p>
     </div>
   </div>
-)
+);
 
 const Business = () => {
   return (
     <section id='features' className={layout.section}>
+      {/* Metadata for SEO */}
+      <Helmet>
+        <title>Business Solutions | MIKIRO Advanced Research</title>
+        <meta name="description" content="MIKIRO Advanced Research helps businesses grow with advanced solutions that optimize processes, enhance efficiency, and unlock new opportunities for scaling with confidence." />
+        <meta name="keywords" content="MIKIRO, business solutions, process optimization, efficiency, growth, advanced technology, AI solutions" />
+        <meta name="author" content="MIKIRO Advanced Research Company" />
+      </Helmet>
+
       <div className={layout.sectionInfo}>
         <h2 className={styles.heading2}>
           Focus on growth, <br className='sm:block hidden'/>we handle the rest.
@@ -46,7 +55,7 @@ const Business = () => {
         ))}
       </div>
     </section>
-  )
-}
+  );
+};
 
-export default Business
+export default Business;
