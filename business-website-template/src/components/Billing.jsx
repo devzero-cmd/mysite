@@ -50,14 +50,40 @@ const Billing = () => {
   return (
     <>
       {products.map((product, index) => (
-        <section key={product.id} className={index % 2 === 0 ? layout.sectionReverse : layout.section}>
-          
+        <section
+          key={product.id}
+          className={index % 2 === 0 ? layout.sectionReverse : layout.section}
+        >
           {/* Metadata for SEO using react-helmet */}
           <Helmet>
             <title>{product.metadata.title}</title>
             <meta name="description" content={product.metadata.description} />
             <meta name="keywords" content={product.metadata.keywords} />
             <meta name="author" content={product.metadata.author} />
+
+            {/* JSON-LD structured data for each product */}
+            <script type="application/ld+json">
+              {JSON.stringify({
+                "@context": "https://schema.org",
+                "@type": "Product",
+                "name": product.title,
+                "image": product.img,
+                "description": product.description,
+                "brand": {
+                  "@type": "Organization",
+                  "name": "MIKIRO",
+                  "url": "https://www.mikiro.com",
+                  "logo": "https://www.mikiro.com/logo.png"
+                },
+                "offers": {
+                  "@type": "Offer",
+                  "url": "https://www.mikiro.com#product-" + product.id,
+                  "availability": "https://schema.org/InStock",
+                  "priceCurrency": "USD",
+                  "price": "Contact for pricing"
+                }
+              })}
+            </script>
           </Helmet>
 
           {/* Product Image */}
@@ -65,26 +91,26 @@ const Billing = () => {
             <img
               src={product.img}
               alt={product.title}
-              className='w-full max-w-[600px] h-auto object-contain relative z-[5] rounded-xl shadow-lg'
+              className="w-full max-w-[600px] h-auto object-contain relative z-[5] rounded-xl shadow-lg"
             />
-            <div className='absolute z-[3] -left-1/2 top-0 w-[50%] h-[50%] rounded-full white__gradient' />
-            <div className='absolute z-[0] -left-1/2 bottom-0 w-[50%] h-[50%] rounded-full pink__gradient' />
+            <div className="absolute z-[3] -left-1/2 top-0 w-[50%] h-[50%] rounded-full white__gradient" />
+            <div className="absolute z-[0] -left-1/2 bottom-0 w-[50%] h-[50%] rounded-full pink__gradient" />
           </div>
 
           {/* Product Info */}
           <div className={layout.sectionInfo}>
             <h2 className={styles.heading2}>{product.title}</h2>
             <p className={`${styles.paragraph} max-w-[470px] mt-5`}>{product.description}</p>
-            <p className='mt-3 text-sm text-gray-400 italic'>
+            <p className="mt-3 text-sm text-gray-400 italic">
               Developed by MIKIRO Advanced Research Company
             </p>
-            <div className='flex flex-row flex-wrap sm:mt-10 mt-6'>
+            <div className="flex flex-row flex-wrap sm:mt-10 mt-6">
               {product.stores.map((store, i) => (
                 <img
                   key={i}
                   src={store}
-                  alt='store'
-                  className='w-[128px] h-[42px] object-contain mr-5 cursor-pointer'
+                  alt="store"
+                  className="w-[128px] h-[42px] object-contain mr-5 cursor-pointer"
                 />
               ))}
             </div>
