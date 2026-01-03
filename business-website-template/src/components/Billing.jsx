@@ -1,5 +1,5 @@
 import React from 'react';
-import { Helmet } from 'react-helmet';
+import { Helmet } from 'react-helmet-async'; // ✅ updated import
 import { apple, google } from '../assets'; // Keep your store icons
 import styles, { layout } from '../style';
 
@@ -54,7 +54,7 @@ const Billing = () => {
           key={product.id}
           className={index % 2 === 0 ? layout.sectionReverse : layout.section}
         >
-          {/* Metadata for SEO using react-helmet */}
+          {/* Metadata for SEO using react-helmet-async */}
           <Helmet>
             <title>{product.metadata.title}</title>
             <meta name="description" content={product.metadata.description} />
@@ -66,22 +66,22 @@ const Billing = () => {
               {JSON.stringify({
                 "@context": "https://schema.org",
                 "@type": "Product",
-                "name": product.title,
-                "image": product.img,
-                "description": product.description,
-                "brand": {
+                name: product.title,
+                image: product.img,
+                description: product.description,
+                brand: {
                   "@type": "Organization",
-                  "name": "MIKIRO",
-                  "url": "https://www.mikiro.com",
-                  "logo": "https://www.mikiro.com/logo.png"
+                  name: "MIKIRO",
+                  url: "https://www.mikiro.com",
+                  logo: "https://www.mikiro.com/logo.png",
                 },
-                "offers": {
+                offers: {
                   "@type": "Offer",
-                  "url": "https://www.mikiro.com#product-" + product.id,
-                  "availability": "https://schema.org/InStock",
-                  "priceCurrency": "USD",
-                  "price": "Contact for pricing"
-                }
+                  url: `https://www.mikiro.com#product-${product.id}`,
+                  availability: "https://schema.org/InStock",
+                  priceCurrency: "USD",
+                  price: "Contact for pricing",
+                },
               })}
             </script>
           </Helmet>
