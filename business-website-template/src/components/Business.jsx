@@ -33,9 +33,41 @@ const Business = () => {
       {/* Metadata for SEO */}
       <Helmet>
         <title>Business Solutions | MIKIRO Advanced Research</title>
-        <meta name="description" content="MIKIRO Advanced Research helps businesses grow with advanced solutions that optimize processes, enhance efficiency, and unlock new opportunities for scaling with confidence." />
-        <meta name="keywords" content="MIKIRO, business solutions, process optimization, efficiency, growth, advanced technology, AI solutions" />
+        <meta
+          name="description"
+          content="MIKIRO Advanced Research helps businesses grow with advanced solutions that optimize processes, enhance efficiency, and unlock new opportunities for scaling with confidence."
+        />
+        <meta
+          name="keywords"
+          content="MIKIRO, business solutions, process optimization, efficiency, growth, advanced technology, AI solutions"
+        />
         <meta name="author" content="MIKIRO Advanced Research Company" />
+
+        {/* JSON-LD structured data for Business Features */}
+        <script type="application/ld+json">
+          {JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "Service",
+            "name": "Business Solutions",
+            "provider": {
+              "@type": "Organization",
+              "name": "MIKIRO",
+              "url": "https://www.mikiro.com",
+              "logo": "https://www.mikiro.com/logo.png"
+            },
+            "description": "MIKIRO Advanced Research helps businesses grow with advanced solutions that optimize processes, enhance efficiency, and unlock new opportunities for scaling with confidence.",
+            "hasOfferCatalog": {
+              "@type": "OfferCatalog",
+              "name": "Business Features",
+              "itemListElement": features.map(f => ({
+                "@type": "Offer",
+                "name": f.title,
+                "description": f.content,
+                "image": f.icon
+              }))
+            }
+          })}
+        </script>
       </Helmet>
 
       <div className={layout.sectionInfo}>
